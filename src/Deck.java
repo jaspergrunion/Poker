@@ -35,7 +35,7 @@ public class Deck {
 
     @Override
     public String toString() {
-        return "Deck{" +
+        return "Number of cards: " + this.cards.size() + "\nDeck{" +
                 "cards=" + cards +
                 '}';
     }
