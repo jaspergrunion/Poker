@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class HandStrength {
+public class Strength {
 
 //    public static Map rank(Player player) {
     public static void rankMap(Player player) {

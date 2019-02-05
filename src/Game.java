@@ -65,8 +65,8 @@ public class Game {
         System.out.println();
 
         for (Player player :players){
-            HandStrength.rankMap(player);
-            HandStrength.suitMap(player);
+            Strength.rankMap(player);
+            Strength.suitMap(player);
             System.out.println();
         }
 
