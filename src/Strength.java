@@ -16,11 +16,13 @@ public class Strength {
         }
         System.out.println(rankMap);
         Set<String> keys = rankMap.keySet();
+        StringBuilder sb = new StringBuilder();
         String[] keyArray = keys.toArray(new String[keys.size()]);
         for (int i = 0; i < keyArray.length; i++) {
-            System.out.print(keyArray[i]);
+            sb.append(keyArray[i]);
         }
-        System.out.println();
+        String cardOrder = sb.toString();
+        System.out.println(cardOrder);
     }
 
     public static void suitMap(Player player) {
