@@ -5,6 +5,8 @@ public class Game {
     public static void main(String[] args) {
 
         System.out.println("LET'S PLAY POKER!");
+        System.out.println();
+
         int numPlayers = 4;
         int numPlayerCards = 2;
         int numCommonCards = 5;
@@ -13,23 +15,14 @@ public class Game {
         System.out.println("Number of common cards: " + numCommonCards);
         System.out.println();
 
-        // Create new deck
+        // Create new deck and shuffle
         Deck deck = new Deck();
-        System.out.println("FRESH DECK:");
-        System.out.println(deck);
-        System.out.println();
-
-        // Shuffle deck
         Deck.shuffle(deck);
         System.out.println("SHUFFLED DECK:");
         System.out.println(deck);
         System.out.println();
 
-//        Card card1 = deck1.getCards().remove(0);
-//        System.out.println(card1);
-//        System.out.println(deck1);
-
-        // Instantiate players
+        // Create list of players
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < numPlayers; i++) {
             Player player = new Player();
@@ -49,8 +42,6 @@ public class Game {
             System.out.println(player);
         }
         System.out.println();
-//        System.out.println(deck);
-//        System.out.println();
 
         List<Card> commonCards = new ArrayList<>();
         for (int i = 0; i < numCommonCards + 3 ; i++) {
@@ -60,11 +51,24 @@ public class Game {
             }
         }
         System.out.println("Common cards: " + commonCards);
+        System.out.println();
 
-//        System.out.println();
-//        System.out.println(deck);
-//        System.out.println();
+        for (Player player : players){
+            for (Card card : commonCards) {
+                player.setCard(card);
+            }
+        }
 
+        for (Player player: players){
+            System.out.println(player);
+        }
+        System.out.println();
+
+        for (Player player :players){
+            HandStrength.rankMap(player);
+            HandStrength.suitMap(player);
+            System.out.println();
+        }
 
     }
 }
