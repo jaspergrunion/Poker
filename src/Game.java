@@ -70,5 +70,8 @@ public class Game {
             System.out.println();
         }
 
+        List<String> straights = Straights.build();
+        System.out.println(straights);
+
     }
 }

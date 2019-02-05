@@ -1,10 +1,10 @@
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class Strength {
 
-//    public static Map rank(Player player) {
     public static void rankMap(Player player) {
         TreeMap<String, Integer> rankMap = new TreeMap<>();
         for (Card card : player.getCards()) {
@@ -15,10 +15,14 @@ public class Strength {
             }
         }
         System.out.println(rankMap);
-//        return rankMap;
+        Set<String> keys = rankMap.keySet();
+        String[] keyArray = keys.toArray(new String[keys.size()]);
+        for (int i = 0; i < keyArray.length; i++) {
+            System.out.print(keyArray[i]);
+        }
+        System.out.println();
     }
 
-    //    public static Map rank(Player player) {
     public static void suitMap(Player player) {
         TreeMap<String, Integer> suitMap = new TreeMap<>();
         for (Card card : player.getCards()) {
@@ -29,7 +33,6 @@ public class Strength {
             }
         }
         System.out.println(suitMap);
-//        return rankMap;
     }
 
 }

@@ -1,17 +1,22 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Deck {
-    private String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+
+//    private String[] ranks = {"02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"};
+    private String[] ranks = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"};
+    private String[] ranksDisplay = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
     private String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     private List<Card> cards = new ArrayList<>();
 
     public Deck() {
-        for (String rank : ranks){
-            for (String suit : suits){
+        for (int i = 0; i < ranks.length ; i++) {
+            for (int j = 0; j < suits.length; j++) {
                 Card tempCard = new Card();
-                tempCard.setRank(rank);
-                tempCard.setSuit(suit);
+                tempCard.setRank(ranks[i]);
+                tempCard.setRankDisplay(ranksDisplay[i]);
+                tempCard.setSuit(suits[j]);
                 cards.add(tempCard);
             }
         }
