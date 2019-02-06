@@ -34,8 +34,8 @@ public class Hand {
         }
         if(hasStraight){
             player.setStraight(true);
-            System.out.println("Player has a straight!");
         }
+        System.out.println("Has Straight: " + player.isStraight());
 
         // Determine flush
         TreeMap<String, Integer> suitMap = new TreeMap<>();
