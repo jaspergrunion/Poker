@@ -15,4 +15,9 @@ public class Straights {
         return list;
     }
 
+    public static void main(String[] args) {
+        List<String> straights = Straights.build();
+        System.out.println(straights);
+    }
+
 }

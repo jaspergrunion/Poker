@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Deck {
 
-//    private String[] ranks = {"02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"};
     private String[] ranks = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"};
     private String[] ranksDisplay = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
     private String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};

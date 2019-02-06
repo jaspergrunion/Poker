@@ -7,7 +7,7 @@ public class Game {
         System.out.println("LET'S PLAY POKER!");
         System.out.println();
 
-        int numPlayers = 4;
+        int numPlayers = 6;
         int numPlayerCards = 2;
         int numCommonCards = 5;
         System.out.println("Number of players: " + numPlayers);
@@ -53,25 +53,17 @@ public class Game {
         System.out.println("Common cards: " + commonCards);
         System.out.println();
 
+        // Add common cards to each players hand
         for (Player player : players){
             for (Card card : commonCards) {
                 player.setCard(card);
             }
         }
 
-        for (Player player: players){
+        for (Player player : players){
             System.out.println(player);
+            Hand.evaluate(player);
         }
-        System.out.println();
-
-        for (Player player :players){
-            Strength.rankMap(player);
-            Strength.suitMap(player);
-            System.out.println();
-        }
-
-        List<String> straights = Straights.build();
-        System.out.println(straights);
 
     }
 }
