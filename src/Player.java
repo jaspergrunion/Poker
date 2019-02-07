@@ -4,6 +4,7 @@ import java.util.List;
 public class Player {
     private List<Card> cards = new ArrayList<>();
     private int chips;
+    private boolean isRoyalStraightFlush;
     private boolean isStraightFlush;
     private boolean isFours;
     private boolean isFullHouse;
@@ -12,10 +13,45 @@ public class Player {
     private boolean isThrees;
     private boolean isTwoPair;
     private boolean isOnePair;
-    private Card topCard;
+    private String topRank;
+
+    private String flushTopRank = "";
+    private String straightTopRank = "";
 
     public void setCard(Card card){
         this.cards.add(card);
+    }
+
+    public String getFlushTopRank() {
+        return flushTopRank;
+    }
+
+    public void setFlushTopRank(String flushTopRank) {
+        this.flushTopRank = flushTopRank;
+    }
+
+    public String getStraightTopRank() {
+        return straightTopRank;
+    }
+
+    public void setStraightTopRank(String straightTopRank) {
+        this.straightTopRank = straightTopRank;
+    }
+
+    public String getTopRank() {
+        return topRank;
+    }
+
+    public void setTopRank(String topRank) {
+        this.topRank = topRank;
+    }
+
+    public boolean isRoyalStraightFlush() {
+        return isRoyalStraightFlush;
+    }
+
+    public void setRoyalStraightFlush(boolean royalStraightFlush) {
+        isRoyalStraightFlush = royalStraightFlush;
     }
 
     public List<Card> getCards() {
@@ -96,14 +132,6 @@ public class Player {
 
     public void setOnePair(boolean onePair) {
         isOnePair = onePair;
-    }
-
-    public Card getTopCard() {
-        return topCard;
-    }
-
-    public void setTopCard(Card topCard) {
-        this.topCard = topCard;
     }
 
     @Override

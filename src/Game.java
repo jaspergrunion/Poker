@@ -7,6 +7,7 @@ public class Game {
         System.out.println("LET'S PLAY POKER!");
         System.out.println();
 
+        /*
         int numPlayers = 6;
         int numPlayerCards = 2;
         int numCommonCards = 5;
@@ -62,8 +63,45 @@ public class Game {
 
         for (Player player : players){
             System.out.println(player);
-            Hand.evaluate(player);
+            Evaluate.hand(player);
         }
+        */
 
+        // test player
+        Player player1 = new Player();
+
+        Card card1 = new Card();
+        card1.setSuit("Spades");
+        card1.setRank("M");
+        card1.setRankDisplay("Ace");
+        player1.setCard(card1);
+
+        Card card2 = new Card();
+        card2.setSuit("Spades");
+        card2.setRank("L");
+        card2.setRankDisplay("King");
+        player1.setCard(card2);
+
+        Card card3 = new Card();
+        card3.setSuit("Spades");
+        card3.setRank("K");
+        card3.setRankDisplay("Queen");
+        player1.setCard(card3);
+
+        Card card4 = new Card();
+        card4.setSuit("Spades");
+        card4.setRank("J");
+        card4.setRankDisplay("Jack");
+        player1.setCard(card4);
+
+        Card card5 = new Card();
+        card5.setSuit("Spades");
+        card5.setRank("I");
+        card5.setRankDisplay("Ten");
+        player1.setCard(card5);
+
+        System.out.println(player1);
+
+        Evaluate.hand(player1);
     }
 }
