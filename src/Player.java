@@ -15,6 +15,7 @@ public class Player {
     private boolean isOnePair;
 
     private String foursRank = "";
+    private String threesRank = "";
     private String flushTopRank = "";
     private String straightTopRank = "";
     private String topRank;
@@ -31,6 +32,13 @@ public class Player {
         this.foursRank = foursRank;
     }
 
+    public String getThreesRank() {
+        return threesRank;
+    }
+
+    public void setThreesRank(String threesRank) {
+        this.threesRank = threesRank;
+    }
 
     public String getFlushTopRank() {
         return flushTopRank;

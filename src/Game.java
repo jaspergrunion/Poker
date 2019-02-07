@@ -70,41 +70,41 @@ public class Game {
         // test player
         Player player1 = new Player();
 
-        Card card1 = new Card();
-        card1.setSuit("Clubs");
-        card1.setRank("M");
-        card1.setRankDisplay("Ace");
-        player1.setCard(card1);
-
-        Card card2 = new Card();
-        card2.setSuit("Spades");
-        card2.setRank("L");
-        card2.setRankDisplay("King");
-        player1.setCard(card2);
-
-        Card card3 = new Card();
-        card3.setSuit("Spades");
-        card3.setRank("K");
-        card3.setRankDisplay("Queen");
-        player1.setCard(card3);
-
-        Card card4 = new Card();
-        card4.setSuit("Spades");
-        card4.setRank("J");
-        card4.setRankDisplay("Jack");
-        player1.setCard(card4);
-
-        Card card5 = new Card();
-        card5.setSuit("Spades");
-        card5.setRank("I");
-        card5.setRankDisplay("10");
-        player1.setCard(card5);
-
-        Card card6 = new Card();
-        card6.setSuit("Spades");
-        card6.setRank("1");
-        card6.setRankDisplay("2");
-        player1.setCard(card6);
+//        Card card1 = new Card();
+//        card1.setSuit("Clubs");
+//        card1.setRank("M");
+//        card1.setRankDisplay("Ace");
+//        player1.setCard(card1);
+//
+//        Card card2 = new Card();
+//        card2.setSuit("Spades");
+//        card2.setRank("L");
+//        card2.setRankDisplay("King");
+//        player1.setCard(card2);
+//
+//        Card card3 = new Card();
+//        card3.setSuit("Spades");
+//        card3.setRank("K");
+//        card3.setRankDisplay("Queen");
+//        player1.setCard(card3);
+//
+//        Card card4 = new Card();
+//        card4.setSuit("Spades");
+//        card4.setRank("J");
+//        card4.setRankDisplay("Jack");
+//        player1.setCard(card4);
+//
+//        Card card5 = new Card();
+//        card5.setSuit("Spades");
+//        card5.setRank("I");
+//        card5.setRankDisplay("10");
+//        player1.setCard(card5);
+//
+//        Card card6 = new Card();
+//        card6.setSuit("Spades");
+//        card6.setRank("1");
+//        card6.setRankDisplay("2");
+//        player1.setCard(card6);
 
 //        Card card1 = new Card();
 //        card1.setSuit("Clubs");
@@ -148,12 +148,46 @@ public class Game {
 //        card7.setRankDisplay("7");
 //        player1.setCard(card7);
 
+
+        Card card1 = new Card();
+        card1.setSuit("Clubs");
+        card1.setRank("A");
+        card1.setRankDisplay("Ace");
+        player1.setCard(card1);
+
+        Card card2 = new Card();
+        card2.setSuit("Spades");
+        card2.setRank("A");
+        card2.setRankDisplay("Ace");
+        player1.setCard(card2);
+
+        Card card3 = new Card();
+        card3.setSuit("Hearts");
+        card3.setRank("A");
+        card3.setRankDisplay("Ace");
+        player1.setCard(card3);
+
+        Card card4 = new Card();
+        card4.setSuit("Diamonds");
+        card4.setRank("A");
+        card4.setRankDisplay("2");
+        player1.setCard(card4);
+
+        Card card5 = new Card();
+        card5.setSuit("Spades");
+        card5.setRank("I");
+        card5.setRankDisplay("10");
+        player1.setCard(card5);
+
+        Card card6 = new Card();
+        card6.setSuit("Spades");
+        card6.setRank("1");
+        card6.setRankDisplay("2");
+        player1.setCard(card6);
+
         System.out.println(player1);
 
         Evaluate.hand(player1);
 
-//        String test1 = "a";
-//        String test2 = "";
-//        System.out.println(test1.compareTo(test2));
     }
 }

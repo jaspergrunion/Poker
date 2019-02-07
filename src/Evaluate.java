@@ -43,10 +43,18 @@ public class Evaluate {
         }
         System.out.println("Rank map: " + rankMap);
 
-        // Determine straight
+        // Determine straights and multiples
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Integer> entry : rankMap.entrySet()) {
             sb.append(entry.getKey());
+            if (entry.getValue() == 4){
+                player.setFours(true);
+                player.setFoursRank(entry.getKey());
+            }
+            if (entry.getValue() == 3){
+                player.setThrees(true);
+                player.setThreesRank(entry.getKey());
+            }
         }
         String rankOrder = sb.toString();
 
@@ -69,11 +77,15 @@ public class Evaluate {
         // Print hand strength booleans
         System.out.println("> Royal straight flush: " + player.isRoyalStraightFlush());
         System.out.println("> Straight flush: " + player.isStraightFlush());
+        System.out.println("> Four of a kind: " + player.isFours());
+        System.out.println("> Fours rank: " + player.getFoursRank());
         System.out.println("> Flush: " + player.isFlush());
         System.out.println("> Flush suit: " + flushSuit);
         System.out.println("> Flush top rank: " + player.getFlushTopRank());
         System.out.println("> Straight: " + player.isStraight());
         System.out.println("> Straight top rank: " + player.getStraightTopRank());
+        System.out.println("> Three of a kind: " + player.isThrees());
+        System.out.println("> Threes rank: " + player.getThreesRank());
 
         System.out.println();
 
