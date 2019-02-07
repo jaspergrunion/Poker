@@ -71,7 +71,7 @@ public class Game {
         Player player1 = new Player();
 
         Card card1 = new Card();
-        card1.setSuit("Spades");
+        card1.setSuit("Clubs");
         card1.setRank("M");
         card1.setRankDisplay("Ace");
         player1.setCard(card1);
@@ -97,11 +97,63 @@ public class Game {
         Card card5 = new Card();
         card5.setSuit("Spades");
         card5.setRank("I");
-        card5.setRankDisplay("Ten");
+        card5.setRankDisplay("10");
         player1.setCard(card5);
+
+        Card card6 = new Card();
+        card6.setSuit("Spades");
+        card6.setRank("1");
+        card6.setRankDisplay("2");
+        player1.setCard(card6);
+
+//        Card card1 = new Card();
+//        card1.setSuit("Clubs");
+//        card1.setRank("M");
+//        card1.setRankDisplay("Ace");
+//        player1.setCard(card1);
+//
+//        Card card2 = new Card();
+//        card2.setSuit("Clubs");
+//        card2.setRank("A");
+//        card2.setRankDisplay("2");
+//        player1.setCard(card2);
+//
+//        Card card3 = new Card();
+//        card3.setSuit("Clubs");
+//        card3.setRank("B");
+//        card3.setRankDisplay("3");
+//        player1.setCard(card3);
+//
+//        Card card4 = new Card();
+//        card4.setSuit("Clubs");
+//        card4.setRank("C");
+//        card4.setRankDisplay("4");
+//        player1.setCard(card4);
+//
+//        Card card5 = new Card();
+//        card5.setSuit("Clubs");
+//        card5.setRank("D");
+//        card5.setRankDisplay("5");
+//        player1.setCard(card5);
+//
+//        Card card6 = new Card();
+//        card6.setSuit("Clubs");
+//        card6.setRank("E");
+//        card6.setRankDisplay("6");
+//        player1.setCard(card6);
+//
+//        Card card7 = new Card();
+//        card7.setSuit("Clubs");
+//        card7.setRank("F");
+//        card7.setRankDisplay("7");
+//        player1.setCard(card7);
 
         System.out.println(player1);
 
         Evaluate.hand(player1);
+
+//        String test1 = "a";
+//        String test2 = "";
+//        System.out.println(test1.compareTo(test2));
     }
 }

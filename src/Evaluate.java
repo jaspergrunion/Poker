@@ -4,7 +4,7 @@ public class Evaluate {
 
     public static void hand(Player player) {
 
-        // Determine flush
+        // Counts by suit
         TreeMap<String, Integer> suitMap = new TreeMap<>();
         for (Card card : player.getCards()) {
             if (suitMap.containsKey(card.getSuit())) {
@@ -15,15 +15,24 @@ public class Evaluate {
         }
         System.out.println("Suit Map: " + suitMap);
 
+        // Determine flush
         String flushSuit = "";
         for (Map.Entry<String, Integer> entry : suitMap.entrySet()) {
             if (entry.getValue() >= 5){
-                player.setFlush(true);
                 flushSuit = entry.getKey();
+                player.setFlush(true);
             }
         }
+        // Flush top rank
+        String flushTopRank = "";
+        for (Card card : player.getCards()){
+            if ((card.getRank().compareTo(flushTopRank) > 0) && card.getSuit().equals(flushSuit)){
+                flushTopRank = card.getRank();
+            }
+        }
+        player.setFlushTopRank(flushTopRank);
 
-        // Determine straight
+        // Counts by rank
         TreeMap<String, Integer> rankMap = new TreeMap<>();
         for (Card card : player.getCards()) {
             if (rankMap.containsKey(card.getRank())) {
@@ -32,43 +41,39 @@ public class Evaluate {
                 rankMap.put(card.getRank(), 1);
             }
         }
-        System.out.println(rankMap);
+        System.out.println("Rank map: " + rankMap);
 
+        // Determine straight
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Integer> entry : rankMap.entrySet()) {
             sb.append(entry.getKey());
         }
-        String cardOrder = sb.toString();
+        String rankOrder = sb.toString();
 
         String[] straightsArray = {"ABCDE", "BCDEF", "CDEFG", "DEFGH", "EFGHI", "FGHIJ", "GHIJK", "HIJKL", "IJKLM"};
-        boolean hasStraight = false;
         for(String string : straightsArray){
-            // Handle ace low
-            if (cardOrder.contains("ABCD") && cardOrder.contains("M")){
-                hasStraight = true;
-                player.setStraightTopRank("D");
-            }
-            // Other straights
-            if (cardOrder.contains(string)) {
-                hasStraight = true;
+            if (rankOrder.contains(string)) {
+                player.setStraight(true);
                 player.setStraightTopRank(string.substring(4));
             }
-        }
-        if(hasStraight){
-            player.setStraight(true);
+            // Handle ace low
+            if (rankOrder.contains("ABCD") && rankOrder.contains("M") && !player.isStraight()){
+                player.setStraight(true);
+                player.setStraightTopRank("D");
+            }
         }
         // Determine straight flushes
         player.setStraightFlush(player.isFlush() && player.isStraight());
         player.setRoyalStraightFlush(player.isStraightFlush() && player.getStraightTopRank().equals("M"));
 
         // Print hand strength booleans
-//        System.out.println();
-        System.out.println("> Royal Straight Flush: " + player.isRoyalStraightFlush());
-        System.out.println("> Straight Flush: " + player.isStraightFlush());
+        System.out.println("> Royal straight flush: " + player.isRoyalStraightFlush());
+        System.out.println("> Straight flush: " + player.isStraightFlush());
         System.out.println("> Flush: " + player.isFlush());
         System.out.println("> Flush suit: " + flushSuit);
+        System.out.println("> Flush top rank: " + player.getFlushTopRank());
         System.out.println("> Straight: " + player.isStraight());
-        System.out.println("> Straight Top Rank: " + player.getStraightTopRank());
+        System.out.println("> Straight top rank: " + player.getStraightTopRank());
 
         System.out.println();
 

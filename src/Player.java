@@ -13,14 +13,24 @@ public class Player {
     private boolean isThrees;
     private boolean isTwoPair;
     private boolean isOnePair;
-    private String topRank;
 
+    private String foursRank = "";
     private String flushTopRank = "";
     private String straightTopRank = "";
+    private String topRank;
 
     public void setCard(Card card){
         this.cards.add(card);
     }
+
+    public String getFoursRank() {
+        return foursRank;
+    }
+
+    public void setFoursRank(String foursRank) {
+        this.foursRank = foursRank;
+    }
+
 
     public String getFlushTopRank() {
         return flushTopRank;
