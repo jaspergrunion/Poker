@@ -23,30 +23,56 @@ public class Evaluate {
                 player.setFlush(true);
             }
         }
-        // Flush top rank
-        String flushTopRank = "";
-        for (Card card : player.getCards()){
-            if ((card.getRank().compareTo(flushTopRank) > 0) && card.getSuit().equals(flushSuit)){
-                flushTopRank = card.getRank();
+
+        // Create list of cards with flush cards only
+        List<Card> flushCards = new ArrayList<>();
+        for (Card card : player.getCards()) {
+            if (card.getSuit().equals(flushSuit)){
+                flushCards.add(card);
             }
         }
+        System.out.println(flushCards);
+
+        TreeMap<String, Integer> rankFlushMap = new TreeMap<>();
+        for (Card card : flushCards) {
+            if (rankFlushMap.containsKey(card.getRankHidden())) {
+                rankFlushMap.put(card.getRankHidden(), rankFlushMap.get(card.getRankHidden()) + 1);
+            } else {
+                rankFlushMap.put(card.getRankHidden(), 1);
+            }
+        }
+        System.out.println("Rank flush map: " + rankFlushMap);
+
+        StringBuilder sbf = new StringBuilder();
+        for (Map.Entry<String, Integer> entry : rankFlushMap.entrySet()) {
+            sbf.append(entry.getKey());
+        }
+        String rankFlushOrder = sbf.reverse().toString();
+        System.out.println(rankFlushOrder);
+
+        // Flush top rank
+        String flushTopRank = "";
+        String flushBottomRank = "";
+        flushTopRank = rankFlushOrder.substring(0,1);
+        flushBottomRank = rankFlushOrder.substring(4, 5);
         player.setFlushTopRank(flushTopRank);
+        player.setFlushBottomRank(flushBottomRank);
 
         // Counts by rank
         TreeMap<String, Integer> rankMap = new TreeMap<>();
         for (Card card : player.getCards()) {
-            if (rankMap.containsKey(card.getRank())) {
-                rankMap.put(card.getRank(), rankMap.get(card.getRank()) + 1);
+            if (rankMap.containsKey(card.getRankHidden())) {
+                rankMap.put(card.getRankHidden(), rankMap.get(card.getRankHidden()) + 1);
             } else {
-                rankMap.put(card.getRank(), 1);
+                rankMap.put(card.getRankHidden(), 1);
             }
         }
         System.out.println("Rank map: " + rankMap);
 
         // Determine straights and multiples
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sbr = new StringBuilder();
         for (Map.Entry<String, Integer> entry : rankMap.entrySet()) {
-            sb.append(entry.getKey());
+            sbr.append(entry.getKey());
             if (entry.getValue() == 4){
                 player.setFours(true);
                 player.setFoursRank(entry.getKey());
@@ -56,13 +82,15 @@ public class Evaluate {
                 player.setThreesRank(entry.getKey());
             }
         }
-        String rankOrder = sb.toString();
+        String rankOrder = sbr.toString();
+        System.out.println(rankOrder);
 
         String[] straightsArray = {"ABCDE", "BCDEF", "CDEFG", "DEFGH", "EFGHI", "FGHIJ", "GHIJK", "HIJKL", "IJKLM"};
         for(String string : straightsArray){
             if (rankOrder.contains(string)) {
                 player.setStraight(true);
-                player.setStraightTopRank(string.substring(4));
+                player.setStraightTopRank(string.substring(4, 5));
+                player.setStraightBottomRank(string.substring(0, 1));
             }
             // Handle ace low
             if (rankOrder.contains("ABCD") && rankOrder.contains("M") && !player.isStraight()){
@@ -70,8 +98,12 @@ public class Evaluate {
                 player.setStraightTopRank("D");
             }
         }
+
         // Determine straight flushes
-        player.setStraightFlush(player.isFlush() && player.isStraight());
+        // This is broken
+        player.setStraightFlush(player.isFlush() && player.isStraight() &&
+                player.getFlushTopRank().equals(player.getStraightTopRank()) &&
+                player.getFlushBottomRank().equals(player.getStraightBottomRank()));
         player.setRoyalStraightFlush(player.isStraightFlush() && player.getStraightTopRank().equals("M"));
 
         // Print hand strength booleans
@@ -82,8 +114,10 @@ public class Evaluate {
         System.out.println("> Flush: " + player.isFlush());
         System.out.println("> Flush suit: " + flushSuit);
         System.out.println("> Flush top rank: " + player.getFlushTopRank());
+        System.out.println("> Flush bottom rank: " + player.getFlushBottomRank());
         System.out.println("> Straight: " + player.isStraight());
         System.out.println("> Straight top rank: " + player.getStraightTopRank());
+        System.out.println("> Straight bottom rank: " + player.getStraightBottomRank());
         System.out.println("> Three of a kind: " + player.isThrees());
         System.out.println("> Threes rank: " + player.getThreesRank());
 

@@ -17,60 +17,10 @@ public class Player {
     private String foursRank = "";
     private String threesRank = "";
     private String flushTopRank = "";
+    private String flushBottomRank = "";
     private String straightTopRank = "";
+    private String straightBottomRank = "";
     private String topRank;
-
-    public void setCard(Card card){
-        this.cards.add(card);
-    }
-
-    public String getFoursRank() {
-        return foursRank;
-    }
-
-    public void setFoursRank(String foursRank) {
-        this.foursRank = foursRank;
-    }
-
-    public String getThreesRank() {
-        return threesRank;
-    }
-
-    public void setThreesRank(String threesRank) {
-        this.threesRank = threesRank;
-    }
-
-    public String getFlushTopRank() {
-        return flushTopRank;
-    }
-
-    public void setFlushTopRank(String flushTopRank) {
-        this.flushTopRank = flushTopRank;
-    }
-
-    public String getStraightTopRank() {
-        return straightTopRank;
-    }
-
-    public void setStraightTopRank(String straightTopRank) {
-        this.straightTopRank = straightTopRank;
-    }
-
-    public String getTopRank() {
-        return topRank;
-    }
-
-    public void setTopRank(String topRank) {
-        this.topRank = topRank;
-    }
-
-    public boolean isRoyalStraightFlush() {
-        return isRoyalStraightFlush;
-    }
-
-    public void setRoyalStraightFlush(boolean royalStraightFlush) {
-        isRoyalStraightFlush = royalStraightFlush;
-    }
 
     public List<Card> getCards() {
         return cards;
@@ -86,6 +36,14 @@ public class Player {
 
     public void setChips(int chips) {
         this.chips = chips;
+    }
+
+    public boolean isRoyalStraightFlush() {
+        return isRoyalStraightFlush;
+    }
+
+    public void setRoyalStraightFlush(boolean royalStraightFlush) {
+        isRoyalStraightFlush = royalStraightFlush;
     }
 
     public boolean isStraightFlush() {
@@ -150,6 +108,66 @@ public class Player {
 
     public void setOnePair(boolean onePair) {
         isOnePair = onePair;
+    }
+
+    public String getFoursRank() {
+        return foursRank;
+    }
+
+    public void setFoursRank(String foursRank) {
+        this.foursRank = foursRank;
+    }
+
+    public String getThreesRank() {
+        return threesRank;
+    }
+
+    public void setThreesRank(String threesRank) {
+        this.threesRank = threesRank;
+    }
+
+    public String getFlushTopRank() {
+        return flushTopRank;
+    }
+
+    public void setFlushTopRank(String flushTopRank) {
+        this.flushTopRank = flushTopRank;
+    }
+
+    public String getFlushBottomRank() {
+        return flushBottomRank;
+    }
+
+    public void setFlushBottomRank(String flushBottomRank) {
+        this.flushBottomRank = flushBottomRank;
+    }
+
+    public String getStraightTopRank() {
+        return straightTopRank;
+    }
+
+    public void setStraightTopRank(String straightTopRank) {
+        this.straightTopRank = straightTopRank;
+    }
+
+    public String getStraightBottomRank() {
+        return straightBottomRank;
+    }
+
+    public void setStraightBottomRank(String straightBottomRank) {
+        this.straightBottomRank = straightBottomRank;
+    }
+
+    public String getTopRank() {
+        return topRank;
+    }
+
+    public void setTopRank(String topRank) {
+        this.topRank = topRank;
+    }
+
+    public void setCard(Card card){
+        this.cards.add(card);
     }
 
     @Override
