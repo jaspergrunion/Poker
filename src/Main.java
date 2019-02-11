@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -34,7 +31,7 @@ public class Main {
         for (int i = 0; i < numPlayerCards; i++) {
             for (Player player : players){
                 Card card = deck.getCards().remove(0);
-                player.setCard(card);
+                player.dealCard(card);
             }
         }
 
@@ -56,7 +53,7 @@ public class Main {
         // Add common cards to each players hand
         for (Player player : players){
             for (Card card : commonCards) {
-                player.setCard(card);
+                player.dealCard(card);
             }
         }
 
@@ -71,40 +68,38 @@ public class Main {
 
         Card card1 = new Card();
         card1.setRank("2");
-        card1.setSuit("Spades");
-        player1.setCard(card1);
+        card1.setSuit("Hearts");
+        player1.dealCard(card1);
 
         Card card2 = new Card();
-        card2.setRank("3");
-        card2.setSuit("Spades");
-        player1.setCard(card2);
+        card2.setRank("2");
+        card2.setSuit("Clubs");
+        player1.dealCard(card2);
 
         Card card3 = new Card();
-        card3.setRank("4");
+        card3.setRank("2");
         card3.setSuit("Spades");
-        player1.setCard(card3);
+        player1.dealCard(card3);
 
         Card card4 = new Card();
         card4.setRank("5");
-        card4.setSuit("Spades");
-        player1.setCard(card4);
+        card4.setSuit("Hearts");
+        player1.dealCard(card4);
 
         Card card5 = new Card();
-        card5.setRank("6");
-        card5.setSuit("Spades");
-        player1.setCard(card5);
+        card5.setRank("5");
+        card5.setSuit("Diamonds");
+        player1.dealCard(card5);
 
         Card card6 = new Card();
-        card6.setRank("King");
-        card6.setSuit("Spades");
-        player1.setCard(card6);
+        card6.setRank("7");
+        card6.setSuit("Hearts");
+        player1.dealCard(card6);
 
         Card card7 = new Card();
-        card7.setRank("5");
-        card7.setSuit("Hearts");
-        player1.setCard(card7);
-
-        System.out.println(player1);
+        card7.setRank("7");
+        card7.setSuit("Clubs");
+        player1.dealCard(card7);
 
         Evaluate.hand(player1);
 
