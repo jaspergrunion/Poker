@@ -30,6 +30,9 @@ public class Player {
     public String flushSuit = "";
     public String flushRun = "";
     public String straightRun = "";
+    public String topCard = "";
+
+    public String topHand = "";
 
     public void dealCard(Card card){
         this.cards.add(card);
